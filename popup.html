@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>قيم</title>
+    <link href="https://cdn.rawgit.com/rtaibah/dubai-font-cdn/master/dubai-font.css" rel="stylesheet">
+    <style>
+        body {
+        width: 220px;
+        align-items: center;
+        text-align: center;
+        font-family: 'Dubai', sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+    }
+
+    #alert {
+        color: rgb(85, 187, 60);
+        animation: fadeInFromNone 0.5s ease-out;
+        display: none;
+        margin-top: 3px;
+    }
+
+    #madeBy{
+        font-size: 12px;
+    }
+
+    @keyframes fadeInFromNone {
+        0% {
+            display: none;
+            opacity: 0;
+        }
+
+        1% {
+            display: block;
+            opacity: 0;
+        }
+
+        100% {
+            display: block;
+            opacity: 1;
+        }
+    }
+</style>
+</head>
+
+<body>
+   
+    
+    <p dir="rtl" style='font-weight: bold'>اختر نوع التقييم:
+    </p>
+    <label for="normal">التقييم العادي</label> 
+    <input type="radio"
+        name="turbo" id="normal"> 
+        <br>
+        <label for="tubro">التقييم السريع</label>
+        <input type="radio" name="turbo" id="turbo">
+        <p dir="rtl">التقييم 
+            <span style="font-weight: bold">العادي
+            </span>: سيتم اضافة صف جديد في صفحة تقييم المحاضر يساعد
+            بتحديد باقي الخيارات بشكل مباشر. اختر هذا النوع في حال رغبتك بتقييم محاضر معين بشكل خاص
+        </p>
+        <p dir="rtl">التقييم 
+            <span style="font-weight: bold">السريع
+            </span>: سيتم التقييم بشكل سريع ومباشر بمجرد دخولك صفحة
+            تقييم المحاضرين
+        </p>
+        <br>
+    <br>
+    <span id='alert' dir="rtl">حدّث الصفحة بعد تغيير نوع التقييم</span>
+    <script src="popup.js"></script>
+</body>
+
+</html>

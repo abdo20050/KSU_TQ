@@ -1,0 +1,20 @@
+{
+   "browser_action": {
+      "default_popup": "popup.html",
+      "default_title": "تسريع عملية تقييم المحاضرين"
+   },
+   "content_scripts": [ {
+      "js": [ "content.js" ],
+      "matches": [ "https://edugate.ksu.edu.sa/ksu/ui/student/student_evaluation/index/activitiesInstructorsIndex.faces", "https://edugate.ksu.edu.sa/ksu/ui/student/student_evaluation/index/evaluationTypesIndex.faces", "https://edugate.ksu.edu.sa/ksu/ui/student/student_evaluation/index/evalQuestionsIndex.faces", "http://edugate.ksu.edu.sa/ksu/ui/student/student_evaluation/index/activitiesInstructorsIndex.faces", "http://edugate.ksu.edu.sa/ksu/ui/student/student_evaluation/index/evaluationTypesIndex.faces", "http://edugate.ksu.edu.sa/ksu/ui/student/student_evaluation/index/evalQuestionsIndex.faces" ],
+      "run_at": "document_end"
+   } ],
+   "description": " تسريع عملية تقييم المحاضرين",
+   "icons": {
+      "48": "ksu_logo400x400.png"
+   },
+   "manifest_version": 3,
+   "name": "تقييم KSU 2022",
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.7"
+}
