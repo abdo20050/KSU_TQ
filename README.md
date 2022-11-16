@@ -8,4 +8,5 @@ TBA
 Download the zip file and load it through your browser manually 
 ## How to use
 Can't be easier!
-<img src="https://i.imgur.com/O3bf8QM.gif" width="500"/>
+![HOW TO USE TQ](https://i.imgur.com/O3bf8QM.gif)
+
