@@ -1,5 +1,5 @@
 {
-   "browser_action": {
+   "action": {
       "default_popup": "popup.html",
       "default_title": "تسريع عملية تقييم المحاضرين"
    },
@@ -16,5 +16,5 @@
    "name": "تقييم KSU 2022",
    "permissions": [ "storage" ],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "0.7"
+   "version": "0.7.1"
 }
