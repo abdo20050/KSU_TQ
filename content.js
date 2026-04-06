@@ -3,7 +3,7 @@
 let tabLink = window.location.toString();
 
 
-
+const NUMBER_Of_COLUMNS = 6;
 
 
 chrome.storage.sync.get('mode', function (items) {
@@ -15,22 +15,7 @@ chrome.storage.sync.get('mode', function (items) {
             tabLink == "http://edugate.ksu.edu.sa/ksu/ui/student/student_evaluation/index/activitiesInstructorsIndex.faces") {
             // console.log('صفحة التقييم');
 
-            var baseNum = 0;
-            var increment = 6;
-            //var idOpt = '[id^="opt"]'
-            var r = document.querySelectorAll('[id^="opt"]');
-            console.log(r.length);
-            var feildsLen = r.length/6;
-            var i = 0;
-            var vir =baseNum+4;
-
-            
-            for (i; i < feildsLen; i++) {
-                r[vir].checked = true;
-                vir = vir + increment;
-            }
-
-            foolKSUVerification();
+            fillRatingOptions(4);
 
             // clearFormHiddenParams_frm
             var curForm = document.forms['frm'];
@@ -94,100 +79,29 @@ chrome.storage.sync.get('mode', function (items) {
         turbo = false;
         if (tabLink == "https://edugate.ksu.edu.sa/ksu/ui/student/student_evaluation/index/activitiesInstructorsIndex.faces" ||
             tabLink == "http://edugate.ksu.edu.sa/ksu/ui/student/student_evaluation/index/activitiesInstructorsIndex.faces") {
-            // console.log('صفحة التقييم والوضع نورمااال');
 
-            var tables = document.getElementById('frm').querySelector("table:nth-child(3)").insertAdjacentHTML('beforebegin', '<table width="100%" border="0" cellpadding="0" cellspacing="0"> <tbody> <tr> <td class="fontTextMain">تــــقــــيــــيــــم</td></tr><tr> <td height="5"></td></tr><tr> <td> <table width="100%" cellpadding="1" cellspacing="1"> <tbody> <tr style=" border-color: red;"> <td width="3" class="HEADING"  ">&nbsp;</td><th class="HEADING"  "> <div align="right"> الخيارات </div></th>  <th class="HEADING"  "> لا ينطبق </th> <th class="HEADING"  "> لا أوافق بشدة </th> <th class="HEADING"  "> لا أوافق </th> <th class="HEADING"  "> أحيانا </th> <th class="HEADING"  "> أوافق </th> <th class="HEADING"  "> أوافق بشدة </th> </tr><tr> <td width="3" class="ROW1">&nbsp;</td><td align="right" class="ROW1"> <div align="right"> 1&nbsp;-&nbsp; &nbsp;اختر واحد من الخيارات لاختياره للبقية </div></td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq1" value="1"> </td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq2" value="2"> </td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq3" value="3"> </td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq4" value="4"> </td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq5" value="5"> </td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq6" value="6"> </td></tr></tbody> </table> </td></tr></tbody></table><hr>');
+            // rating page
 
-
-            var baseNum = 0;
-            var increment = 6;
-            //var idOpt = '[id^="opt"]'
-            var r = document.querySelectorAll('[id^="opt"]');
-            console.log(r.length);
-            var feildsLen = r.length/6;
-            document.getElementById('tq1').addEventListener('click', function () {
-               
-                
-                var i = 0;
-                var vir =baseNum;
-
-                
-                for (i; i < feildsLen; i++) {
-                    r[vir].checked = true;
-                    vir = vir + increment;
-                }
-
-                foolKSUVerification();
-
-            })
-            document.getElementById('tq2').addEventListener('click', function () {
-
-                var i = 0;
-                var vir =baseNum+1;
-
-                for (i; i < feildsLen; i++) {
-                    r[vir].checked = true;
-                    vir = vir + increment;
-                }
-                
-                foolKSUVerification();
-            })
-            document.getElementById('tq3').addEventListener('click', function () {
-
-                var i = 0;
-                var vir =baseNum+2;
-
-                for (i; i < feildsLen; i++) {
-                    r[vir].checked = true;
-                    vir = vir + increment;
-                }
-
-                foolKSUVerification();
-
-            })
-            document.getElementById('tq4').addEventListener('click', function () {
-
-                var i = 0;
-                var vir =baseNum+3;
-
-                for (i; i < feildsLen; i++) {
-                    r[vir].checked = true;
-                    vir = vir + increment;
-                }
-
-                foolKSUVerification();
-
-            })
-            document.getElementById('tq5').addEventListener('click', function () {
-
-                var i = 0;
-                var vir =baseNum+4;
-
-                for (i; i < feildsLen; i++) {
-                    r[vir].checked = true;
-                    vir = vir + increment;
-                }
-                foolKSUVerification();
-               
-            })
-            document.getElementById('tq6').addEventListener('click', function () {
-
-                var i = 0;
-                var vir =baseNum+5;
-
-                for (i; i < feildsLen; i++) {
-                    r[vir].checked = true;
-                    vir = vir + increment;
-                }
-
-                foolKSUVerification();
-            })
-            
+            document.getElementById('tq1').addEventListener('click', ()=>fillRatingOptions(0))
+            document.getElementById('tq2').addEventListener('click', ()=>fillRatingOptions(1))
+            document.getElementById('tq3').addEventListener('click', ()=>fillRatingOptions(2))
+            document.getElementById('tq4').addEventListener('click', ()=>fillRatingOptions(3))
+            document.getElementById('tq5').addEventListener('click', ()=>fillRatingOptions(4))
+            document.getElementById('tq6').addEventListener('click', ()=>fillRatingOptions(5))
         }
     }
-    function foolKSUVerification(){
-        r[17*6].checked = true;
-        r[40*6+2].checked = true;
-    }
-    
 });
+
+function fillRatingOptions(option){
+    const optionsArray = document.querySelectorAll('[id^="opt"]');
+
+    var vir = option;
+    for (var i = 0 ; i < optionsArray.length/NUMBER_Of_COLUMNS ; i++) {
+        optionsArray[vir].checked = true;
+        vir = vir + NUMBER_Of_COLUMNS;
+    }
+
+    // fool KSU Verification
+    r[17*6].checked = true;
+    r[40*6+2].checked = true;
+}
