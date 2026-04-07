@@ -82,6 +82,8 @@ chrome.storage.sync.get('mode', function (items) {
 
             // rating page
 
+            insertTable();
+
             document.getElementById('tq1').addEventListener('click', ()=>fillRatingOptions(0))
             document.getElementById('tq2').addEventListener('click', ()=>fillRatingOptions(1))
             document.getElementById('tq3').addEventListener('click', ()=>fillRatingOptions(2))
@@ -104,4 +106,8 @@ function fillRatingOptions(option){
     // fool KSU Verification
     r[17*6].checked = true;
     r[40*6+2].checked = true;
+}
+
+function insertTable(){
+    document.getElementById('frm').querySelector("table:nth-child(3)").insertAdjacentHTML('beforebegin', '<table width="100%" border="0" cellpadding="0" cellspacing="0"> <tbody> <tr> <td class="fontTextMain">تــــقــــيــــيــــم</td></tr><tr> <td height="5"></td></tr><tr> <td> <table width="100%" cellpadding="1" cellspacing="1"> <tbody> <tr style=" border-color: red;"> <td width="3" class="HEADING"  ">&nbsp;</td><th class="HEADING"  "> <div align="right"> الخيارات </div></th>  <th class="HEADING"  "> لا ينطبق </th> <th class="HEADING"  "> لا أوافق بشدة </th> <th class="HEADING"  "> لا أوافق </th> <th class="HEADING"  "> أحيانا </th> <th class="HEADING"  "> أوافق </th> <th class="HEADING"  "> أوافق بشدة </th> </tr><tr> <td width="3" class="ROW1">&nbsp;</td><td align="right" class="ROW1"> <div align="right"> 1&nbsp;-&nbsp; &nbsp;اختر واحد من الخيارات لاختياره للبقية </div></td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq1" value="1"> </td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq2" value="2"> </td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq3" value="3"> </td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq4" value="4"> </td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq5" value="5"> </td><td align="center" class="ROW1"> <input class="tq" type="radio" name="tq" id="tq6" value="6"> </td></tr></tbody> </table> </td></tr></tbody></table><hr>');
 }
