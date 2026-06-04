@@ -97,15 +97,15 @@ chrome.storage.sync.get('mode', function (items) {
 function fillRatingOptions(option){
     const optionsArray = document.querySelectorAll('[id^="opt"]');
 
-    var vir = option;
     for (var i = 0 ; i < optionsArray.length/NUMBER_Of_COLUMNS ; i++) {
-        optionsArray[vir].checked = true;
-        vir = vir + NUMBER_Of_COLUMNS;
+        const optionElement = optionsArray[i*NUMBER_Of_COLUMNS + option];
+        if (optionElement) 
+            optionElement.checked = true;
     }
 
     // fool KSU Verification
-    r[17*6].checked = true;
-    r[40*6+2].checked = true;
+    optionsArray[10*6+2].checked = true;
+    optionsArray[optionsArray.length-1].checked = true;
 }
 
 function insertTable(){
